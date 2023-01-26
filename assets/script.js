@@ -8,7 +8,7 @@ submitBtn.addEventListener('click', btnSubmit1);
 var APIKey = '4fd6f21c09387bdd2ef7e9728c3da374';
 var APIKey2 = 'a722d57109fee8e36a0484882d4db6e9';
 
-var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
+var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
 
 
 var cardData1 = document.getElementById('card1')
@@ -49,7 +49,7 @@ var day5Humidity = document.getElementById('day5Humidity');
 function btnSubmit() {
 clearData();
 var city = document.getElementById('inputCity').value;
-var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey + "&units=imperial";
+var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey + "&units=imperial";
 
 fetch(queryURL)
   .then((response) => response.json())
@@ -61,7 +61,7 @@ localStorage.setItem('CityName', JSON.stringify(city));
 function btnSubmit1() {
     var city = document.getElementById('inputCity').value;
     
-    var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + APIKey2 + "&units=imperial";
+    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + APIKey2 + "&units=imperial";
     fetch(queryURL)
       .then((response) => response.json())
       .then((data) => generateCards1(data)); 
@@ -75,7 +75,7 @@ logToMem();
 var generateCards = (data) => {
 
     var img = document.createElement("img");
-    img.src = 'http://openweathermap.org/img/wn/' + data.weather[0].icon +'@2x.png';
+    img.src = 'https://openweathermap.org/img/wn/' + data.weather[0].icon +'@2x.png';
 
     console.log(data)
     currentHumidity.append(data.main.humidity)
@@ -165,7 +165,7 @@ function newONE() {
     clearData();
 var city = JSON.parse(localStorage.getItem('CityName'));
 console.log(city)
-var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey + "&units=imperial";
+var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey + "&units=imperial";
 
 fetch(queryURL)
   .then((response) => response.json())
@@ -176,7 +176,7 @@ localStorage.setItem('CityName', JSON.stringify(city));
 
 function newONE1() {
     var city = JSON.parse(localStorage.getItem('CityName'));
-    var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + APIKey2 + "&units=imperial";
+    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + APIKey2 + "&units=imperial";
     fetch(queryURL)
       .then((response) => response.json())
       .then((data) => generateCards1(data)); 
